@@ -1,4 +1,5 @@
-# AI Project Template
+# ai-workflow-capstone
+IBM AI Enterprise Workflow Capstone
 
 # Requirements
 
