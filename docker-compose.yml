@@ -2,8 +2,9 @@ version: "3.9"
 
 services:
   notebooks:
+    env_file: .env
     image: elyra/elyra
     ports: 
-      - 8888:8888
-    # volumes:
-    #   - ${HOME}/opensource/jupyter-notebooks:./notebooks
+      - ${LOCAL_PORT}:${REMOTE_PORT}
+    volumes:
+      - ${NOTEBOOKS_LOCAL_PATH}:${NOTEBOOKS_REMOTE_PATH}
