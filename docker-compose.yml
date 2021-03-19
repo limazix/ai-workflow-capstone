@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  notebooks:
+    image: elyra/elyra
+    ports: 
+      - 8888:8888
+    # volumes:
+    #   - ${HOME}/opensource/jupyter-notebooks:./notebooks
