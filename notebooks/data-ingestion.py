@@ -11,6 +11,7 @@ warnings.filterwarnings("ignore")
 
 DATA_ROOT_DIR = os.path.abspath(os.path.join("..", "data"))
 DATA_TRAIN_DIR = os.path.normpath(os.path.join(DATA_ROOT_DIR, "cs-train"))
+DATA_OUTPUT_DIR = os.path.normpath(os.path.join("..", "build"))
 
 # %%
 
@@ -91,9 +92,12 @@ def fetch_data(data_dir):
         data_file_path = normalize_path([data_dir, data_file])
         data.append(read_data_file(data_file_path))
 
-    return data
+    return pd.concat(data, sort=True)
 
 
-fetch_data(DATA_TRAIN_DIR)
+# %%
+
+data = fetch_data(DATA_TRAIN_DIR)
+data.to_csv(os.path.join(DATA_OUTPUT_DIR, "data-ingested.csv"))
 
 # %%
