@@ -51,6 +51,26 @@ def check_dir(data_dir):
         raise Exception("specified data dir does not contain any files")
 
 
+def parse_column_names(df):
+    """
+    Method used to parse the column names
+
+    :param df: Original data frame
+    :type df: pd.DataFrame
+
+    :return: pd.DataFrame -- Formatted data frame
+    """
+    cols = set(df.columns.tolist())
+    if 'StreamID' in cols:
+        df.rename(columns={'StreamID': 'stream_id'}, inplace=True)
+    if 'TimesViewed' in cols:
+        df.rename(columns={'TimesViewed': 'times_viewed'}, inplace=True)
+    if 'total_price' in cols:
+        df.rename(columns={'total_price': 'price'}, inplace=True)
+
+    return df
+
+
 def read_data_file(data_file_path):
     """
     Method used to read a data file located on the given path
@@ -60,7 +80,8 @@ def read_data_file(data_file_path):
 
     :return: pd.DataFrame -- Data load to a dataframe object
     """
-    return pd.read_json(data_file_path)
+    df = pd.read_json(data_file_path)
+    return parse_column_names(df)
 
 
 def fetch_data(data_dir):
@@ -81,4 +102,5 @@ def fetch_data(data_dir):
 
 
 fetch_data(DATA_TRAIN_DIR)
+
 # %%
