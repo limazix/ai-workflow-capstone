@@ -1,26 +1,17 @@
 # %%
-%reload_ext autoreload
-%autoreload 2
 
 import os
 import warnings
-warnings.filterwarnings("ignore")
-
-import sys
-sys.path.append('..')
 
 import pandas as pd
-import numpy as np
 
-import tools
-import importlib
-importlib.reload(tools)
+warnings.filterwarnings("ignore")
 
 # %%
-DATA_ROOT_DIR = os.path.abspath(os.path.join('..', 'data'))
-DATA_TRAIN_DIR = os.path.normpath(os.path.join(DATA_ROOT_DIR, 'cs-train'))
 
-print(DATA_TRAIN_DIR)
+DATA_ROOT_DIR = os.path.abspath(os.path.join("..", "data"))
+DATA_TRAIN_DIR = os.path.normpath(os.path.join(DATA_ROOT_DIR, "cs-train"))
+
 # %%
 
 
@@ -61,12 +52,12 @@ def parse_column_names(df):
     :return: pd.DataFrame -- Formatted data frame
     """
     cols = set(df.columns.tolist())
-    if 'StreamID' in cols:
-        df.rename(columns={'StreamID': 'stream_id'}, inplace=True)
-    if 'TimesViewed' in cols:
-        df.rename(columns={'TimesViewed': 'times_viewed'}, inplace=True)
-    if 'total_price' in cols:
-        df.rename(columns={'total_price': 'price'}, inplace=True)
+    if "StreamID" in cols:
+        df.rename(columns={"StreamID": "stream_id"}, inplace=True)
+    if "TimesViewed" in cols:
+        df.rename(columns={"TimesViewed": "times_viewed"}, inplace=True)
+    if "total_price" in cols:
+        df.rename(columns={"total_price": "price"}, inplace=True)
 
     return df
 
@@ -99,6 +90,8 @@ def fetch_data(data_dir):
     for data_file in os.listdir(data_dir):
         data_file_path = normalize_path([data_dir, data_file])
         data.append(read_data_file(data_file_path))
+
+    return data
 
 
 fetch_data(DATA_TRAIN_DIR)
