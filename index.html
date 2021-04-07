@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>AI Project Template</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> AI Project Template</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#part-1">Part 1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#case-study-part-1">Case study part 1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deliverable-goals">Deliverable goals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hints">Hints</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#part-2">Part 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#case-study-part-2">Case study part 2</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deliverable-goals_1">Deliverable goals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#on-time-series-analysis">On time-series analysis</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commonly-used-time-series-tools">Commonly used time-series tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-advanced-methods-for-time-series-analysis">More advanced methods for time-series analysis</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-time-series-data">Working with time-series data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#additional-materials">Additional materials</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#part-3">Part 3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outline">Outline</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api-documentation/">API Documentation</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">AI Project Template</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ibm-ai-enterprise-workflow-capstone">IBM AI Enterprise Workflow Capstone</h1>
+<p>Files for the IBM AI Enterprise Workflow Capstone project. </p>
+<h2 id="part-1">Part 1</h2>
+<h3 id="case-study-part-1">Case study part 1</h3>
+<p>At this point in the project, and in any data science project really, it is best to loosly organize your code as libraries and scripts.  Jupyter notebooks are a convenient and powerful tool, but we have mentioned several times that they are not a good place for source code to live.  If you decide to use a notebook for this part, we recommend that it is used to run functions that live within a <a href="https://docs.python.org/3/tutorial/modules.html">python module</a>.</p>
+<h3 id="deliverable-goals">Deliverable goals</h3>
+<p>Overall this part of the case study is meant to tell the story of the data by investigating the relationship between the data and the business opportunity.</p>
+<blockquote>
+<p>(1) Assimilate the business scenario and articulate testable hypotheses.</p>
+</blockquote>
+<p>Take what you have read from the stories and from what you know about the business scenario and, in your own words, carefully re-state the business opportunity.  Given the stated opportunity, enumerate the testable hypotheses.</p>
+<blockquote>
+<p>(2) State the ideal data to address the business opportunity and clarify the rationale for needing specific data.</p>
+</blockquote>
+<p>Note that this step is carried out <strong>before you read in the data</strong>.  It helps clarify exactly what your are looking for in the data and it helps provide context for what the feature matrix and targets will look like.</p>
+<ol>
+<li>Create a python script to extract relevant data from multiple data sources, automating the process of data ingestion.</li>
+</ol>
+<p>From within a Python module there should be a function that reads in the data, attempts to catch common input errors and returns a feature matrix (NumPy array or Pandas DataFrame) that will subsequently be used as a starting point for EDA and modeling.</p>
+<ol>
+<li>Investigate the relationship between the relevant data, the target and the business metric.</li>
+</ol>
+<p>Using the feature matrix and the tools abvailable to you through EDA spend some time to get to know the data.</p>
+<ol>
+<li>Articulate your findings using a deliverable with visualizations.</li>
+</ol>
+<p>Summarize what you have learned in your investigations using visualizations.</p>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>The JSON files may not contain uniformly named features. Be sure to account for this in your data ingestion function.</li>
+<li>Some of the invoice ids (<code>invoice</code>) have letters that can be removed to improve matching.</li>
+<li>One common way to ready time-series data for modeling is to aggregate the transactions by day. Getting the data into this form will help you prepare for part 2.</li>
+<li>
+<p>If you have not worked with time-series or time-stamped data before the following two links can be useful.</p>
+</li>
+<li>
+<p><a href="https://docs.scipy.org/doc/numpy/reference/arrays.datetime.html">NumPy datetime</a></p>
+</li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">Pandas time-series</a></li>
+<li><a href="https://matplotlib.org/3.1.1/gallery/text_labels_and_annotations/date.html">matplotlib time-series plot</a></li>
+</ul>
+<h2 id="part-2">Part 2</h2>
+<h3 id="case-study-part-2">Case study part 2</h3>
+<p>Time-series analysis is a subject area that has many varied methods and a great potential for customized solutions.
+We cannot cover the breadth and depth of this important area of data science in a single case study. We do 
+however want to use this as a learning opportunity if time-series analysis is new to you.  For those of you who are seasoned 
+practitioners in this area, it may be a useful time to hone your skills or try out a more advanced technique like 
+Gaussian processes.  The reference materials for more advanced approaches to time-series analysis will occur in their own section
+below. If this is your first encounter with time-series data we suggest that that you begin with the supervised learning
+approach before trying out the other possible methods. </p>
+<h2 id="deliverable-goals_1">Deliverable goals</h2>
+<ol>
+<li>State the different modeling approaches that you will compare to address the business opportunity.</li>
+<li>Iterate on your suite of possible models by modifying data transformations, pipeline architectures, hyperparameters 
+and other relevant factors.</li>
+<li>Re-train your model on all of the data using the selected approach and prepare it for deployment.</li>
+<li>Articulate your findings in a summary report.</li>
+</ol>
+<h2 id="on-time-series-analysis">On time-series analysis</h2>
+<p>We have used TensorFlow, scikit-learn, and Spark ML as the main ways to implement models.  Time-series analysis 
+has been around a long time and there are a number of specialized packages and software to help facilitate model 
+implementation.  In the case of our business opportunity, it is required that we 
+<em>predict the next point</em> or determine a reasonable value for next month's revenue.  If we only had revenue, we could 
+engineer features with revenue for the previous day, previous week, previous month and previous three months, for example.
+This provides features that machine learning models such as random forests or boosting could use to 
+capture the underlying patterns or trends in the the data. You will likely spend some time optimizing this feature
+engineering task on a case-by-case basis. </p>
+<p>Predicting the next element in a time-series is in line with the other machine learning tasks that we have encountered in
+this specialization.  One caveat to this approach is that sometimes we wish to project further into the future. Although,
+it is not a specific request of management in the case of this business opportunity, you may want to consider forecasting 
+multiple points into the future, say three months or more. To do this, you have two main categories of methods: 'recursive forecasting' and 'ensemble forecasting'.</p>
+<p>In recursive forecasting, you will append your predictions to the feature matrix and <em>roll</em> forward until you get to the 
+desired number of forecasts in the future.  In the ensemble approach, you will use separate models for each point.  It 
+is possible to use a hybridization of these two ideas as well.  If you wish to take your forecasting model to the next
+level, try to project several months into the future with one or both of these ideas.</p>
+<p>Also, be aware that the assumptions of line regression are generally invalidated when using time-series data because of auto-correlation.  The engineered features are derived mostly from revenue which often means that there is a high degree of correlation.  You will get further with more sophisticated models to in combination with smartly engineered features. </p>
+<h2 id="commonly-used-time-series-tools">Commonly used time-series tools</h2>
+<ul>
+<li><a href="https://www.statsmodels.org/dev/tsa.html">statsmodels time-series package</a> - one of the most commonly used 
+  time-series analysis packages in Python.  There are a suite of models including autoregressive models (AR), 
+  vector autoregressive models (VAR), univariate autoregressive moving average models (ARMA) and more.</li>
+<li><a href="https://www.tensorflow.org/tutorials/structured_data/time_series">Tensorflow time series tutorial</a></li>
+<li><a href="https://research.fb.com/prophet-forecasting-at-scale/">Prophet</a></li>
+</ul>
+<h2 id="more-advanced-methods-for-time-series-analysis">More advanced methods for time-series analysis</h2>
+<ul>
+<li><a href="https://pywavelets.readthedocs.io/en/latest/">PyWavelets</a></li>
+<li><a href="https://docs.pymc.io/api/distributions/timeseries.html">Bayesian Methods for time-series</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy_targets.html">Gaussian process regression</a></li>
+</ul>
+<h2 id="working-with-time-series-data">Working with time-series data</h2>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputRegressor.html">scikit-learn MultiOutputRegressor</a></li>
+<li><a href="https://docs.scipy.org/doc/numpy/reference/arrays.datetime.html">NumPy datetime</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">Pandas time-series</a></li>
+<li><a href="https://matplotlib.org/3.1.1/gallery/text_labels_and_annotations/date.html">matplotlib time-series plot</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html">scikit-learn time-series train-test split</a></li>
+</ul>
+<h2 id="additional-materials">Additional materials</h2>
+<ul>
+<li><a href="https://royalsocietypublishing.org/doi/full/10.1098/rsta.2011.0550">Intro paper to Gaussian Processes in time-series</a></li>
+<li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142064">Paper for using wavelets to aid time-series forecasts</a></li>
+</ul>
+<h2 id="part-3">Part 3</h2>
+<h2 id="outline">Outline</h2>
+<ol>
+<li>Build a draft version of an API with train, predict, and logfile endpoints.</li>
+<li>Using Docker, bundle your API, model, and unit tests.</li>
+<li>Using test-driven development iterate on your API in a way that anticipates scale, load, and drift.</li>
+<li>Create a post-production analysis script that investigates the relationship between model performance and the business metric.</li>
+<li>Articulate your summarized findings in a final report.</li>
+</ol>
+<p>At a higher level you are being asked to:</p>
+<ol>
+<li>Ready your model for deployment</li>
+<li>Query your API with new data and test your monitoring tools</li>
+<li>Compare your results to the gold standard</li>
+</ol>
+<p>To <strong>ready your model for deployment</strong> you will be required to prepare you model in a way that the Flask API can both 
+train and predict.  There are some differences when you compare this model to most of those we have discussed 
+throughout this specialization.  When it comes to training one solution is that the model train script simply uses all
+files in a given directory.  This way you could set your model up to be re-trained at regular intervals with little 
+overhead.  </p>
+<p>Prediction in the case of this model requires a little more thought.  You are not simply passing a query corresponding
+to a row in a feature matrix, because this business opportunity requires that the API takes a country name and a date.
+There are many ways to accommodate these requirements.  You model may simply save the forecasts for a range of dates,
+then the 'predict' function serves to looks up the specified 30 day revenue prediction.  You model could also transform
+the target date into an appropriate input vector that is then used as input for a trained model.</p>
+<p>You might be tempted to setup the predict function to work only with the latest date, which would be appropriate in 
+some circumstances, but in this case we are building a tool to fit the specific needs of individuals.  Some people in
+leadership at AAVAIL make projections at the end of the month and others do this on the 15th so the predict function
+needs to work for all of the end users.</p>
+<p>In the case of this project you can safely assume that there are only a few individuals that will be active users of 
+the model so it may not be worth the effort to optimize for speed when it comes to prediction or training.  The important
+thing is to arrive at a working solution.</p>
+<p>Once all of your tests pass and your model is being served via Docker you will need to <strong>query the API</strong>.  One suggestion
+for this part is to use a script to simulate the process.  You may want to start with fresh log files and then for every
+new day make a prediction with the consideration that you have not yet seen the rest of the future data.  To may the 
+process more realistic you could 're-train' your model say every week or nightly.  At a minimum you should have predictions
+for each day when you are finished and you should compare them to the known values.</p>
+<p>To monitor performance there are several plots that could be made.  The time-series plot where X are the day intervals
+and Y is the 30 day revenue (projected and known) can be particularly useful here.  Because we obtain labels for y the 
+performance of your model can be monitored by comparing predicted and known values.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-documentation/" class="btn btn-neutral float-right" title="API Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="api-documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2021-04-07 00:06:50.804680+00:00
+-->
