@@ -63,6 +63,19 @@ def parse_column_names(df):
     return df
 
 
+def create_datetime_column(df):
+    """
+    Method used to create a datetime column combining year, month and day in each row
+
+    :param df: Base data frame object
+    :type df: pd.DataFrame
+
+    :return: pd.DateFrame -- Data object with a new column datetime
+    """
+    df["datetime"] = pd.to_datetime(df[["year", "month", "day"]])
+    return df
+
+
 def read_data_file(data_file_path):
     """
     Method used to read a data file located on the given path
@@ -73,7 +86,8 @@ def read_data_file(data_file_path):
     :return: pd.DataFrame -- Data load to a dataframe object
     """
     df = pd.read_json(data_file_path)
-    return parse_column_names(df)
+    df = parse_column_names(df)
+    return create_datetime_column(df)
 
 
 def fetch_data(data_dir):
@@ -92,7 +106,9 @@ def fetch_data(data_dir):
         data_file_path = normalize_path([data_dir, data_file])
         data.append(read_data_file(data_file_path))
 
-    return pd.concat(data, sort=True)
+    data = pd.concat(data, sort=True)
+    data.sort_values(by="datetime", inplace=True)
+    return data.reset_index(drop=True)
 
 
 # %%
