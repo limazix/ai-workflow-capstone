@@ -1,4 +1,4 @@
-#%%
+# %%
 
 import os
 import warnings
@@ -6,6 +6,7 @@ import warnings
 import pandas as pd
 
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import seaborn as sns
 
 warnings.filterwarnings("ignore")
@@ -30,18 +31,18 @@ invoices.head(10)
 
 # %% [markdown]
 
-## Revenue Analysis
+# # Revenue Analysis
 
-### 1. Progress Over the Time
+# ## 1. Progress Over the Time
 
 # %%
 
-revenue = pd.DataFrame()
+revenue_daily = pd.DataFrame()
 
 for group, feats in invoices.groupby("datetime"):
-    revenue = revenue.append(
+    revenue_daily = revenue_daily.append(
         {
-            "date": group,
+            "day": group,
             "total": feats["price"].sum(),
             "min": feats["price"].min(),
             "max": feats["price"].max(),
@@ -50,8 +51,19 @@ for group, feats in invoices.groupby("datetime"):
         ignore_index=True,
     )
 
-revenue.set_index("date", inplace=True)
-revenue.sort_index(axis=1)
-revenue.head()
+revenue_daily.head()
+
+# %%
+
+fig, ax = plt.subplots()
+
+sns.lineplot(x="day", y="total", data=revenue_daily, ax=ax)
+
+ax.format_xdata = mdates.DateFormatter("%Y-%m-%d")
+ax.format_ydata = lambda x: "$%1.2f" % x  # format the price.
+ax.grid(True)
+fig.autofmt_xdate()
+
+plt.show()
 
 # %%
