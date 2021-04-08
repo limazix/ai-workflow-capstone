@@ -73,7 +73,7 @@ def create_datetime_column(df):
     :return: pd.DateFrame -- Data object with a new column datetime
     """
     df["datetime"] = pd.to_datetime(df[["year", "month", "day"]])
-    return df
+    return df.drop(["year", "month", "day"], axis=1)
 
 
 def read_data_file(data_file_path):
@@ -114,6 +114,6 @@ def fetch_data(data_dir):
 # %%
 
 data = fetch_data(DATA_TRAIN_DIR)
-data.to_csv(os.path.join(DATA_OUTPUT_DIR, "data-ingested.csv"))
+data.to_csv(os.path.join(DATA_OUTPUT_DIR, "data-ingested.csv"), index=False)
 
 # %%

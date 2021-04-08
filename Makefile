@@ -4,7 +4,7 @@ PYTHON_RUNNER=poetry run
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 ROOT_DIR := $(dir $(MAKEFILE_PATH))
 
-IMAGE_NAME=hub
+IMAGE_NAME=hub-capstone
 CONTAINER_RUNNER=podman
 
 PYTHON_TOOLS=tools
