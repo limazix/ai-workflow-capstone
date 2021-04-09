@@ -4,10 +4,8 @@ import os
 import warnings
 
 import pandas as pd
-
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import seaborn as sns
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 warnings.filterwarnings("ignore")
 
@@ -17,53 +15,62 @@ DATA_ROOT_DIR = os.path.abspath(os.path.join("..", "build"))
 DATA_INPUT_PATH = os.path.normpath(os.path.join(DATA_ROOT_DIR, "data-ingested.csv"))
 DATA_OUTPUT_PATH = os.path.normpath(os.path.join(DATA_ROOT_DIR, "data-explored.csv"))
 
-
 # %%
 
 invoices = pd.read_csv(DATA_INPUT_PATH, parse_dates=["datetime"])
 invoices.info()
 
-# %%
-
-invoices.set_index("datetime", inplace=True)
-invoices.sort_index(inplace=True)
-invoices.head(10)
-
 # %% [markdown]
 
 # # Revenue Analysis
 
-# ## 1. Progress Over the Time
-
+# ## 1. Revenue Over Time
 # %%
 
-revenue_daily = pd.DataFrame()
-
-for group, feats in invoices.groupby("datetime"):
-    revenue_daily = revenue_daily.append(
-        {
-            "day": group,
-            "total": feats["price"].sum(),
-            "min": feats["price"].min(),
-            "max": feats["price"].max(),
-            "std": feats["price"].std(),
-        },
-        ignore_index=True,
+invoices_by_month = (
+    invoices.groupby([pd.Grouper(key="datetime", freq="M")])
+    .agg(
+        num_invoices=("invoice", "count"),
+        revenue_mean=("price", "mean"),
+        revenue_std=("price", "std"),
     )
+    .reset_index()
+)
 
-revenue_daily.head()
+invoices_by_month.head()
 
 # %%
 
-fig, ax = plt.subplots()
+fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-sns.lineplot(x="day", y="total", data=revenue_daily, ax=ax)
+fig.add_trace(
+    go.Bar(
+        name="Invoices",
+        x=invoices_by_month["datetime"],
+        y=invoices_by_month["num_invoices"],
+    ),
+    secondary_y=False,
+)
 
-ax.format_xdata = mdates.DateFormatter("%Y-%m-%d")
-ax.format_ydata = lambda x: "$%1.2f" % x  # format the price.
-ax.grid(True)
-fig.autofmt_xdate()
-
-plt.show()
+fig.add_trace(
+    go.Line(
+        name="Revenue Mean",
+        x=invoices_by_month["datetime"],
+        y=invoices_by_month["revenue_mean"],
+    ),
+    secondary_y=True,
+)
+fig.add_trace(
+    go.Line(
+        name="Revenue Std",
+        x=invoices_by_month["datetime"],
+        y=invoices_by_month["revenue_std"],
+    ),
+    secondary_y=True,
+)
+fig.update_layout(title_text="Invoices & Revenue")
+fig.update_yaxes(title_text="Num. Invoices", secondary_y=False)
+fig.update_yaxes(title_text="Revenue", secondary_y=True)
+fig.show()
 
 # %%
