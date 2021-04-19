@@ -1,10 +1,13 @@
 [tool.poetry]
-name = "ai-project-template"
+name = "ai-workflow-capstone"
 version = "0.1.0"
 description = ""
 authors = ["Bruno Lima <blimacardoso@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
+packages = [
+    { include = "tools" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
