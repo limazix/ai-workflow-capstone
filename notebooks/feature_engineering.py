@@ -36,3 +36,20 @@ invoices_by_day = (
 invoices_by_day.head()
 
 # %%
+
+countries = sorted(invoices_by_day["country"].unique())
+
+invoices_by_day["country"] = invoices_by_day["country"].apply(
+    lambda item: countries.index(item) + 1
+)
+invoices_by_day.head()
+
+# %%
+
+features = ["purchases", "num_invoices", "num_streams", "num_views", "revenue"]
+invoices_by_day.sort_values(["datetime"], inplace=True)
+invoices_by_day[features].to_csv(
+    normalize_path([BUILD_DIR, "features.csv"]), index=False
+)
+
+# %%
