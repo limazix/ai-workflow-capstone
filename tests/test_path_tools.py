@@ -4,7 +4,7 @@ import os
 
 from unittest import TestCase
 
-from tools.path_tools import check_dir
+from tools.path_tools import check_dir, normalize_path
 
 
 class TestPathTools(TestCase):
@@ -27,3 +27,12 @@ class TestPathTools(TestCase):
             check_dir(tmp_dir)
 
         os.rmdir(tmp_dir)
+
+    def test_normalize_path(self):
+        """
+        it should join and normalize a list of path's parts
+        """
+        parts = [os.getcwd(), "data"]
+        expected_path = os.path.normpath(os.path.join(os.getcwd(), "data"))
+        result_path = normalize_path(parts)
+        self.assertEqual(result_path, expected_path)
