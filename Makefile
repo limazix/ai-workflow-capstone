@@ -45,3 +45,13 @@ coverage: activate
 commit:
 	git add --interactive
 	cz commit
+
+build-api:
+	@podman build -t $(IMAGE_NAME) .
+
+serve:
+	@podman run -it --rm -p 8080:8080 \
+		-v $(ROOT_DIR)/data/:/app/data \
+		-v $(ROOT_DIR)/build/:/app/build \
+		--security-opt label=desable \
+		$(IMAGE_NAME)
