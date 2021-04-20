@@ -41,3 +41,7 @@ test-watch: activate
 
 coverage: activate
 	@pytest --cov=$(PYTHON_TOOLS)
+
+commit:
+	git add --interactive
+	cz commit
